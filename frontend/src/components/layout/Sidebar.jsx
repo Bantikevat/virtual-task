@@ -135,12 +135,11 @@ export default function Sidebar() {
           <NavLink
             key={world.id}
             to={world.path}
-            end={world.path === '/'}
             className={({ isActive }) =>
               `nav-link group ${isActive ? 'active' : ''} ${!sidebarOpen ? 'justify-center px-0' : ''}`
             }
           >
-            <span style={{ color: location.pathname === world.path || (world.path === '/' && location.pathname === '/') ? world.color : undefined }}>
+            <span style={{ color: location.pathname === world.path ? world.color : undefined }}>
               {worldIcons[world.id]}
             </span>
             <AnimatePresence>

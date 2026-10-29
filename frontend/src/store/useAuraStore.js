@@ -14,7 +14,7 @@ export const WORLDS = [
     icon: '⬡',
     color: '#e8c872',
     glowColor: 'rgba(232,200,114,0.12)',
-    path: '/',
+    path: '/hub',
     position: { x: 0, y: 0, z: 0 },
   },
   {
