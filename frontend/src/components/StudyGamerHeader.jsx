@@ -31,6 +31,9 @@ export default function StudyGamerHeader({ xp, gems, streak, activeTab, setActiv
     { id: 'attendance', label: 'Attendance', icon: '📋', badge: '75% RULE' },
     { id: 'marks', label: 'Marks & SGPA', icon: '🏆', badge: 'CALCULATOR' },
     { id: 'pdf', label: 'PDF Notes', icon: '📄', badge: 'VIEWER' },
+    { id: 'notes', label: 'Study Notes', icon: '📝', badge: 'WRITE' },
+    { id: 'assignments', label: 'Assignments', icon: '📚', badge: 'DEADLINES' },
+    { id: 'ai-doubt', label: 'AI Doubt Solver', icon: '🤖', badge: 'GEMINI' },
   ];
 
   return (

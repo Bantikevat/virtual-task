@@ -14,6 +14,9 @@ import Flashcards from '../components/Flashcards';
 import AttendanceTracker from '../components/AttendanceTracker';
 import MarksCalculator from '../components/MarksCalculator';
 import PDFViewer from '../components/PDFViewer';
+import StudyNotes from '../components/StudyNotes';
+import AssignmentTracker from '../components/AssignmentTracker';
+import AiDoubtSolver from '../components/AiDoubtSolver';
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.06 } } };
 const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.35 } } };
@@ -351,6 +354,27 @@ export default function StudyWorld() {
       {activeTab === 'pdf' && (
         <motion.div variants={fadeUp} key="tab-pdf">
           <PDFViewer />
+        </motion.div>
+      )}
+
+      {/* TAB: STUDY NOTES */}
+      {activeTab === 'notes' && (
+        <motion.div variants={fadeUp} key="tab-notes">
+          <StudyNotes />
+        </motion.div>
+      )}
+
+      {/* TAB: ASSIGNMENT TRACKER */}
+      {activeTab === 'assignments' && (
+        <motion.div variants={fadeUp} key="tab-assignments">
+          <AssignmentTracker />
+        </motion.div>
+      )}
+
+      {/* TAB: AI DOUBT SOLVER */}
+      {activeTab === 'ai-doubt' && (
+        <motion.div variants={fadeUp} key="tab-ai-doubt" className="h-full">
+          <AiDoubtSolver />
         </motion.div>
       )}
 

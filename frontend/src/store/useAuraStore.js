@@ -267,6 +267,14 @@ export const useAuraStore = create(persist((set, get) => ({
   devNotes: [],
   setDevNotes: (notes) => set({ devNotes: notes }),
 
+  // Study Notes — subject-wise written notes
+  studyNotes: [],
+  setStudyNotes: (notes) => set({ studyNotes: notes }),
+
+  // Assignment Tracker — deadlines, status
+  assignments: [],
+  setAssignments: (assignments) => set({ assignments }),
+
   // Cloud sync: snapshot the user's data out, and merge a snapshot back in.
   exportSnapshot: () => {
     const s = get();
