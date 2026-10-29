@@ -350,6 +350,58 @@ export default function CommandHub() {
         </div>
       </div>
 
+      {/* GITHUB STATS */}
+      <motion.section variants={fadeUp} className="rounded-3xl border border-white/[0.07] bg-black/30 p-6">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-slate-300">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+            <h2 className="font-display text-base font-black text-white">GitHub Activity</h2>
+            <a href="https://github.com/Bantikevat" target="_blank" rel="noopener noreferrer"
+              className="rounded-full border border-white/10 px-2 py-0.5 font-mono text-[10px] text-slate-400 hover:text-white transition">
+              @Bantikevat
+            </a>
+          </div>
+          <a href="https://github.com/Bantikevat" target="_blank" rel="noopener noreferrer"
+            className="text-xs text-slate-500 hover:text-cyan-400 transition">
+            View Profile →
+          </a>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          {/* Stats card */}
+          <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-black/40">
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=Bantikevat&show_icons=true&count_private=true&theme=transparent&bg_color=00000000&title_color=60a5fa&icon_color=34d399&text_color=cbd5e1&border_color=ffffff15&hide_border=false"
+              alt="Banti GitHub Stats"
+              className="w-full"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Top languages */}
+          <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-black/40">
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=Bantikevat&layout=compact&theme=transparent&bg_color=00000000&title_color=a78bfa&text_color=cbd5e1&border_color=ffffff15&hide_border=false&langs_count=6"
+              alt="Banti Top Languages"
+              className="w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* Streak */}
+        <div className="mt-4 overflow-hidden rounded-2xl border border-white/[0.06] bg-black/40">
+          <img
+            src="https://streak-stats.demolab.com?user=Bantikevat&theme=transparent&background=00000000&border=ffffff15&stroke=60a5fa&ring=34d399&fire=fbbf24&currStreakLabel=60a5fa&sideLabels=94a3b8&dates=94a3b8&hide_border=false"
+            alt="Banti GitHub Streak"
+            className="w-full max-h-36 object-contain"
+            loading="lazy"
+          />
+        </div>
+      </motion.section>
+
       {/* New task modal */}
       {creating && <NewTaskModal onClose={() => setCreating(false)} onCreate={addTask} />}
     </motion.div>
