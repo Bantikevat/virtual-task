@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 import { useAuraStore, WORLDS } from '../store/useAuraStore';
 import DevNotes from '../components/DevNotes';
+import MindMap from '../components/MindMap';
 
 const seedNodes = [
   { id: 'dbms', label: 'DBMS', type: 'Subject', links: ['sql', 'normalization', 'aura'] },
@@ -25,6 +26,11 @@ export default function KnowledgeWorld() {
       <section className="glass-strong min-h-[420px] rounded-2xl p-6"><div className="mb-6 flex items-center justify-between"><div><h2 className="font-display text-lg font-semibold">Concept map</h2><p className="mt-1 text-xs text-slate-500">Select a node to inspect its verified links.</p></div><span className="rounded-full bg-ice/10 px-3 py-1 text-xs text-ice">{seedNodes.length} nodes</span></div><div className="grid grid-cols-2 gap-4 sm:grid-cols-3">{seedNodes.map((node) => <button key={node.id} onClick={() => setSelectedId(node.id)} className={`rounded-2xl border p-5 text-left transition ${selectedId === node.id ? 'border-ice/60 bg-ice/10' : 'border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05]'}`}><p className="font-display font-semibold text-white">{node.label}</p><p className="mt-1 text-[11px] text-slate-500">{node.type}</p><p className="mt-4 text-xs text-ice">{node.links.length} connections</p></button>)}</div></section>
       <aside className="space-y-6"><section className="glass-strong rounded-2xl p-5"><p className="section-label">Selected node</p><h2 className="mt-2 font-display text-xl font-semibold">{selected.label}</h2><p className="mt-1 text-xs text-slate-500">{selected.type}</p><div className="mt-5"><p className="text-xs text-slate-400">Connected to</p><div className="mt-2 flex flex-wrap gap-2">{selected.links.map((linkId) => <button key={linkId} onClick={() => setSelectedId(linkId)} className="rounded-full bg-white/[0.06] px-2.5 py-1 text-xs text-ice">{seedNodes.find((node) => node.id === linkId)?.label}</button>)}</div></div></section><section className="glass-strong rounded-2xl p-5"><h2 className="font-display text-base font-semibold">Open work</h2><div className="mt-3 space-y-2">{relatedTasks.map((task) => <div key={task.id} className="rounded-lg bg-white/[0.03] p-3"><p className="text-sm text-slate-200">{task.title}</p><p className="mt-1 text-[10px] text-slate-500">{task.due}</p></div>)}</div></section></aside>
     </div>
+
+    {/* Mind Map */}
+    <section className="rounded-3xl border border-violet-500/20 bg-black/30 p-6">
+      <MindMap />
+    </section>
 
     {/* Dev Notes */}
     <section className="rounded-3xl border border-cyan-500/20 bg-black/30 p-6">

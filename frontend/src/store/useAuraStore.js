@@ -275,6 +275,10 @@ export const useAuraStore = create(persist((set, get) => ({
   assignments: [],
   setAssignments: (assignments) => set({ assignments }),
 
+  // Mind Maps
+  mindMaps: [{ id: 'default', title: 'My Mind Map', nodes: [{ id: 'root1', label: 'Main Topic', x: 380, y: 230, color: '#e8c872', parent: null, isRoot: true }] }],
+  setMindMaps: (mindMaps) => set({ mindMaps }),
+
   // Cloud sync: snapshot the user's data out, and merge a snapshot back in.
   exportSnapshot: () => {
     const s = get();
