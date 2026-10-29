@@ -259,6 +259,14 @@ export const useAuraStore = create(persist((set, get) => ({
   attendanceSubjects: [],
   setAttendanceSubjects: (subjects) => set({ attendanceSubjects: subjects }),
 
+  // Daily Routine Planner
+  routineBlocks: [],
+  setRoutineBlocks: (blocks) => set({ routineBlocks: blocks }),
+
+  // Dev Notes — code snippets, ideas, API tricks
+  devNotes: [],
+  setDevNotes: (notes) => set({ devNotes: notes }),
+
   // Cloud sync: snapshot the user's data out, and merge a snapshot back in.
   exportSnapshot: () => {
     const s = get();

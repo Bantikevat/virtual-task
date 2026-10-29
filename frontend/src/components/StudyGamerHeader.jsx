@@ -30,6 +30,7 @@ export default function StudyGamerHeader({ xp, gems, streak, activeTab, setActiv
     { id: 'subjects', label: 'Subject Rooms', icon: '📚', badge: 'SYLLABUS' },
     { id: 'attendance', label: 'Attendance', icon: '📋', badge: '75% RULE' },
     { id: 'marks', label: 'Marks & SGPA', icon: '🏆', badge: 'CALCULATOR' },
+    { id: 'pdf', label: 'PDF Notes', icon: '📄', badge: 'VIEWER' },
   ];
 
   return (

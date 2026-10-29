@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuraStore, WORLDS } from '../store/useAuraStore';
 import { sfx } from '../lib/audioFx';
 import { ASSISTANT_URL } from '../lib/assistant';
+import DailyRoutine from '../components/DailyRoutine';
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.05 } } };
 const fadeUp = { hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
@@ -525,6 +526,11 @@ export default function LifeWorld() {
           </motion.section>
         </div>
       </div>
+
+      {/* Daily Routine Planner */}
+      <motion.section variants={fadeUp} className="mt-8 rounded-3xl border border-amber-500/20 bg-black/30 p-6">
+        <DailyRoutine />
+      </motion.section>
     </motion.div>
   );
 }

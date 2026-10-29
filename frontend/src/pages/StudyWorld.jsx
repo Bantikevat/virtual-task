@@ -13,6 +13,7 @@ import ConceptForge from '../components/ConceptForge';
 import Flashcards from '../components/Flashcards';
 import AttendanceTracker from '../components/AttendanceTracker';
 import MarksCalculator from '../components/MarksCalculator';
+import PDFViewer from '../components/PDFViewer';
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.06 } } };
 const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.35 } } };
@@ -343,6 +344,13 @@ export default function StudyWorld() {
       {activeTab === 'marks' && (
         <motion.div variants={fadeUp} key="tab-marks">
           <MarksCalculator />
+        </motion.div>
+      )}
+
+      {/* TAB: PDF NOTES VIEWER */}
+      {activeTab === 'pdf' && (
+        <motion.div variants={fadeUp} key="tab-pdf">
+          <PDFViewer />
         </motion.div>
       )}
 
