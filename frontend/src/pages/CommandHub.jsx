@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuraStore, WORLDS } from '../store/useAuraStore';
+import { loadAuth } from '../lib/auth';
 import TaskCard from '../components/TaskCard';
 import NewTaskModal from '../components/NewTaskModal';
 import DailyCommand from '../components/DailyCommand';
@@ -22,6 +23,7 @@ export default function CommandHub() {
     tasks, goals, agents, getGreeting, getStats,
     selectTask, completeTask, addTask, selectedTaskId,
   } = useAuraStore();
+  const authData = loadAuth();
   const [creating, setCreating] = useState(false);
   const [cyberTick, setCyberTick] = useState(0);
 
@@ -63,7 +65,7 @@ export default function CommandHub() {
             <h1 className="mt-3 font-display text-3xl font-black tracking-wide text-white sm:text-4xl lg:text-5xl">
               {getGreeting()},{' '}
               <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-200 bg-clip-text text-transparent">
-                Commander Sam
+                {authData?.name || 'Commander'}
               </span>
               .
             </h1>

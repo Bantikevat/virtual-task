@@ -14,7 +14,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <AppLayout />,
     children: [
-      { index: true, element: <Navigate to="/universe" replace /> },
+      { index: true, element: <Navigate to="/hub" replace /> },
+      { path: 'hub', element: <CommandHub /> },
       { path: 'universe', element: <Universe /> },
       { path: 'career', element: <CareerWorld /> },
       { path: 'study', element: <StudyWorld /> },
