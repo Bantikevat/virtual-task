@@ -563,6 +563,11 @@ review_energy_before_next_mission()`
     }
   }
 
+  function getSortDelay() {
+    const speed = parseInt(document.getElementById('slider-sort-speed').value);
+    return Math.round(240 / speed);
+  }
+
   async function runQuickSort() {
     if (isSortingActive) return;
     isSortingActive = true;
@@ -594,12 +599,12 @@ review_energy_before_next_mission()`
 
       sortingBars[j].material.color.setHex(0xf43f5e); // Comparison (Rose)
       audio.playPitch(200 + sortArray[j] * 6, 0.04);
-      await sleep(70);
+      await sleep(getSortDelay());
 
       if (sortArray[j] < pivot) {
         i++;
         swapBars(i, j);
-        await sleep(70);
+        await sleep(getSortDelay());
       }
       sortingBars[j].material.color.setHex(0x00f0ff);
     }
@@ -623,11 +628,11 @@ review_energy_before_next_mission()`
         sortingBars[j].material.color.setHex(0xf43f5e);
         sortingBars[j + 1].material.color.setHex(0xf43f5e);
         audio.playPitch(180 + sortArray[j] * 5, 0.04);
-        await sleep(50);
+        await sleep(getSortDelay());
 
         if (sortArray[j] > sortArray[j + 1]) {
           swapBars(j, j + 1);
-          await sleep(50);
+          await sleep(getSortDelay());
         }
 
         sortingBars[j].material.color.setHex(0x00f0ff);
@@ -766,6 +771,11 @@ review_energy_before_next_mission()`
     } else if (activeModule === 'bst') {
       // Gentle floating motion
       bstGroup.position.y = Math.sin(time * 1.5) * 0.2;
+    } else if (activeModule === 'workspace') {
+      workNodes.forEach(node => {
+        node.position.y = node.userData.mission.pos[1] + Math.sin(time * 0.8 + node.userData.phase) * 0.35;
+        node.rotation.y = time * 0.25 + node.userData.phase;
+      });
     }
 
     renderer.render(scene, camera);
@@ -848,10 +858,29 @@ review_energy_before_next_mission()`
       }
     });
 
+    // Synaptic Weight Density Slider
+    document.getElementById('slider-weight-intensity').addEventListener('input', e => {
+      const intensity = parseFloat(e.target.value);
+      synapticLines.forEach(s => {
+        s.line.material.opacity = s.weight * 0.35 * intensity;
+      });
+    });
+
     // Bottom Explainer Toggle
     const dock = document.getElementById('cs-dock');
     document.getElementById('btn-toggle-dock').addEventListener('click', () => {
       dock.classList.toggle('collapsed');
+    });
+
+    // Workspace Controls
+    document.getElementById('btn-work-focus').addEventListener('click', () => {
+      audio.playChime();
+      showToast('🎯 25-Minute Focus Sprint Started! Deep work activated.');
+    });
+    document.getElementById('btn-work-shuffle').addEventListener('click', () => {
+      buildWorkspaceField();
+      audio.playPitch(480, 0.15);
+      showToast('✨ Work Field Rebalanced');
     });
   }
 

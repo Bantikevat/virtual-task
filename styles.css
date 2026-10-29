@@ -369,6 +369,7 @@ select {
 .text-green { color: var(--neon-green); }
 .text-purple { color: var(--neon-purple); }
 .text-amber { color: var(--neon-amber); }
+.text-rose { color: var(--neon-rose); }
 
 /* Code Preview Box */
 .code-preview-box {
@@ -501,6 +502,40 @@ select {
 
 .cs-toast.visible {
   opacity: 1;
+}
+
+/* Workspace Panel */
+.work-intro {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.workspace-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.workspace-metrics > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-family: var(--font-code);
+}
+
+.workspace-metrics span {
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+
+.workspace-metrics strong {
+  color: var(--text-main);
 }
 
 @media (max-width: 900px) {
