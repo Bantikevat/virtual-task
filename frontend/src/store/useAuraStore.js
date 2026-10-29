@@ -255,6 +255,10 @@ export const useAuraStore = create(persist((set, get) => ({
     learningRecords: [{ id: crypto.randomUUID(), completedAt: new Date().toISOString(), ...record }, ...state.learningRecords],
   })),
 
+  // Attendance Tracker — Indian 75% rule per subject
+  attendanceSubjects: [],
+  setAttendanceSubjects: (subjects) => set({ attendanceSubjects: subjects }),
+
   // Cloud sync: snapshot the user's data out, and merge a snapshot back in.
   exportSnapshot: () => {
     const s = get();

@@ -7,12 +7,12 @@
     "backend"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev --workspace frontend\" \"npm run dev --workspace backend\"",
+    "dev": "concurrently --names \"FRONTEND,BACKEND\" --prefix-colors \"cyan,green\" \"npm run dev --workspace frontend\" \"npm run dev --workspace backend\"",
+    "dev:all": "concurrently --names \"FRONTEND,BACKEND,AI\" --prefix-colors \"cyan,green,magenta\" \"npm run dev --workspace frontend\" \"npm run dev --workspace backend\" \"npm run assistant --workspace backend\"",
     "frontend": "npm run dev --workspace frontend",
     "backend": "npm run dev --workspace backend",
     "build": "npm run build --workspace frontend",
-    "assistant": "npm run assistant --workspace backend",
-    "dev:ai": "concurrently \"npm run dev --workspace frontend\" \"npm run assistant --workspace backend\""
+    "assistant": "npm run assistant --workspace backend"
   },
   "devDependencies": {
     "concurrently": "^9.2.5"

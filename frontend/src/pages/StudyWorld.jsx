@@ -11,6 +11,8 @@ import StudyGamerHeader from '../components/StudyGamerHeader';
 import NeuroMemoryLock from '../components/NeuroMemoryLock';
 import ConceptForge from '../components/ConceptForge';
 import Flashcards from '../components/Flashcards';
+import AttendanceTracker from '../components/AttendanceTracker';
+import MarksCalculator from '../components/MarksCalculator';
 
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.06 } } };
 const fadeUp = { hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.35 } } };
@@ -327,6 +329,20 @@ export default function StudyWorld() {
               })}
             </div>
           </section>
+        </motion.div>
+      )}
+
+      {/* TAB: ATTENDANCE TRACKER */}
+      {activeTab === 'attendance' && (
+        <motion.div variants={fadeUp} key="tab-attendance">
+          <AttendanceTracker />
+        </motion.div>
+      )}
+
+      {/* TAB: MARKS & SGPA CALCULATOR */}
+      {activeTab === 'marks' && (
+        <motion.div variants={fadeUp} key="tab-marks">
+          <MarksCalculator />
         </motion.div>
       )}
 

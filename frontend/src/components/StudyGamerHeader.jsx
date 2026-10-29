@@ -28,6 +28,8 @@ export default function StudyGamerHeader({ xp, gems, streak, activeTab, setActiv
     { id: 'imagine', label: 'Imagine 3D', icon: '🧊', badge: 'ALGORITHMS' },
     { id: 'reality', label: 'Reality Lab', icon: '🧪', badge: 'SCENARIO' },
     { id: 'subjects', label: 'Subject Rooms', icon: '📚', badge: 'SYLLABUS' },
+    { id: 'attendance', label: 'Attendance', icon: '📋', badge: '75% RULE' },
+    { id: 'marks', label: 'Marks & SGPA', icon: '🏆', badge: 'CALCULATOR' },
   ];
 
   return (
